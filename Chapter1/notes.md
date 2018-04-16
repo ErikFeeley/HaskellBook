@@ -205,6 +205,107 @@ lets break it down
 
 wait why is it just a like that... well since there is no z in the body it just gets dropped off and we still eliminate the head simply leaving the a
 
+lets get wierd
 
+`((lambda)xyz.xz(yz))((lambda)mn.m)((lambda)p.p)`
 
+`((lambda)x.(lambda)y.(lambda)z.xz(yz)) ((lambda)m.(lambda)n.m) ((lambda)p.p)`
+
+apply the first lambda x to the first argument which is the second lambda function
+
+`[x := ((lambda)m.(lambda)n.m)]`
+
+`((lambda)y.(lambda)z.((lambda)m.(lambda)n.m)z(yz)) ((lambda)p.p)`
+
+next up apply the lambda y to the arg lambda p function
+
+`((lambda)z.((lambda)m.(lambda)n.m)z((lambda)p.p)z)`
+
+this is nutty
+
+so there is no arg on the "outside" to apply to the lambda z. so we move in and find that the next thing we can work on the the lambda m which we can apply to z now things are left assoc, so we dont grab the last z we grab the first z as an argument and apply the lambda m to it.
+
+`[m := z]`
+
+`(lambda)z.((lambda)n.z)(((lambda)p.p)z)`
+
+next up we can apply the lamba n function
+
+`[n := ((lambda)p.p)z)]`
+
+welll there is no n left so that essentially gets dropped
+
+`(lambda)z.z`
+
+oddly left with an irreducible lambda z expression
+
+# intermission equivalence stuff
+1. b
+2. c
+3. b
+
+# Evaluation is Simplification
+multiple normal forms in lambda calc here when we say normal form we mean beta normal form meaning you can no longer beta reduce. 
+
+its like saying 2000 / 1000 instead of 2, u dont do that, 2 is the normal form 2000 / 1000 the divisor operator has not been fully applied and the function has not been fully evaluated so we can do that and get the normal form 2.
+
+satuerated means all arguments have been applied so in division 2000 / 1000 is saturated. 
+
+# Combinators
+a combinator is a lambda term with no free variables and only serve to combine the arguments they are given
+
+the following are combinators as every term in the body occurs in the head
+
+1. (lambda)x.x
+2. (lambda)x.xy
+3. (lambda)xyz.xz(yz)
+
+these are not due to free variables
+
+1. (lamda)y.x
+2. (lambda)x.xz
+
+# Divergence
+sooo sometimes following the beta reduction process causing divergence instead of converging to a final value. soo it essentially never ends as it will keep diverging.
+
+example
+
+`((lambda)x.xx)((lambda)x.xx)`
+
+`[x := (lambda)x.xx]`
+
+`((lambda)x.xx)((lambdax.xx))`
+
+so your back to the start. infinite loop
+
+# Summary
+functional programming is based on expressions the include variables or constant values, expressions combined with other expressions, and functions
+
+functions have head a body, head is applied to arguments and then reduce/evalute to the result
+
+variables are bound, and must have the same value in the body
+
+all functions take one arg and return one result, aka currying
+
+functions map from a set of inputs the domain to a set of outputs the codomain
+
+all of this applies to haskell and other pure functional programming languages. haskell is a lambda calculus a typed one specifically 
+
+# Chapter Exercises
+
+## Combinators
+1. true
+2. false
+3. true
+4. true
+5. false
+
+## Normal or Diverge
+1. normal
+2. diverge
+3. normal
+
+## beta reduce
+
+not doin.... sry.. to much parens and typing...
 

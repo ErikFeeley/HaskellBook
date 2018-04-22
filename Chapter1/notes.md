@@ -2,17 +2,26 @@
 I think it is worth noting that the wording of applying a function to arguments is so specificly used in the writing early in the chapter. A function is applied to its input(s) and those input(s) are mapped to their output(s). Since haskell is a pure language a function given the same input(s) will always return the same output(s). To be specific the input set is referred to as the domain and the output set the codomain. On a personal note functional programming "feels better" to me than object oriented programming due to mathmatical background. 
 
 Valid functions
-f(1) = a
-f(2) = a
-f(3) = b
 
 f(1) = a
+
 f(2) = a
+
+f(3) = b
+
+
+f(1) = a
+
+f(2) = a
+
 f(3) = a
 
 Not valid
+
 f(1) = a
+
 f(1) = b
+
 f(1) = c
 
 Functions map sets of inputs to sets of outputs. it should be pure, predictable, replicateable... etc.
